@@ -11,7 +11,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 #cargar el csv para analizar
-df = pd.read_csv("/dbfs/mnt/processed/anuncios_insights_modificado.csv")
+df = pd.read_csv("/dbfs/mnt/processed/anuncios_insights_clean05_09_2024.csv")
 
 #configurar las propiedades de los fliers(valores atipicos)
 flierprops = dict(marker='o', markerfacecolor='red', markersize=5, linestyle='none')
