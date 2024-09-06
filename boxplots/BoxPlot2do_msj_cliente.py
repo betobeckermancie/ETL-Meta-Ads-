@@ -53,6 +53,9 @@ upper_bound = q3 + 1.5 * iqr
 # Filtrar anuncios con mas 2do_msj_cliente por encima del límite superior
 anuncios_outliers = df[df['2do_msj_cliente'] > upper_bound]
 
+#ordenar los outliners de mayor a menor
+anuncios_outliers= anuncios_outliers.sort_values(by='2do_msj_cliente', ascending=False)
+
 # Mostrar los nombres de los anuncios que son outliers
 print("Anuncios con 2da respuesta por usuario (outliers):")
 print(anuncios_outliers[['nombre_anuncio', '2do_msj_cliente']])

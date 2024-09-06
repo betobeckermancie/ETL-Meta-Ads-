@@ -14,5 +14,8 @@ print(f"Máximo valor en costo_por_mil_impresiones: {df['costo_por_mil_impresion
 # Ordenar el DataFrame por la columna 'costo_por_mil_impresiones' de mayor a menor
 df_ordenado = df.sort_values(by='costo_por_mil_impresiones', ascending=False)
 
+#ordenar los outliners de mayor a menor 
+anuncios_outliers= anuncios_outliers.sort_values(by='costo_por_mil_impresiones', ascending=False)
+
 # Mostrar los anuncios con los valores más altos en 'costo_por_mil_impresiones'
 print(df_ordenado[['nombre_anuncio', 'costo_por_mil_impresiones']])

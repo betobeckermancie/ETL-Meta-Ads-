@@ -56,6 +56,9 @@ upper_bound = q3 + 1.5 * iqr
 # Filtrar anuncios con mas click_link por encima del límite superior
 anuncios_outliers = df[df['click_link'] > upper_bound]
 
+#ordenar los outliners de mayor a menor
+anuncios_outliers= anuncios_outliers.sort_values(by='click_link', ascending=False)
+
 # Mostrar los nombres de los anuncios que son outliers
 print("Anuncios con más clicks en el link (outliers):")
 print(anuncios_outliers[['nombre_anuncio', 'click_link']])

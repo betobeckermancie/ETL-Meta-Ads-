@@ -57,6 +57,9 @@ upper_bound = q3 + 1.5 * iqr
 # Filtrar anuncios con mas interaccion_post por encima del límite superior
 anuncios_outliers = df[df['interaccion_post'] > upper_bound]
 
+#ordenar los outliners de mayor a menor
+anuncios_outliers= anuncios_outliers.sort_values(by='interaccion_post', ascending=False)
+
 # Mostrar los nombres de los anuncios que son outliers
 print("Anuncios con más interaccion (outliers):")
 print(anuncios_outliers[['nombre_anuncio', 'interaccion_post']])

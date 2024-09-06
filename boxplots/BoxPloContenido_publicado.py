@@ -55,6 +55,9 @@ upper_bound = q3 + 1.5 * iqr
 # Filtrar anuncios con mas contenido_publicado por encima del límite superior
 anuncios_outliers = df[df['contenido_publicado'] > upper_bound]
 
+#ordenar los outliners de mayor a menor
+anuncios_outliers= anuncios_outliers.sort_values(by='contenido_publicado', ascending=False)
+
 # Mostrar los nombres de los anuncios que son outliers
 print("Anuncios con contenido generado por usuarios (outliers):")
 print(anuncios_outliers[['nombre_anuncio', 'contenido_publicado']])

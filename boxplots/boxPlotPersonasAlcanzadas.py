@@ -52,6 +52,9 @@ upper_bound = q3 + 1.5 * iqr
 # Filtrar anuncios con personas alcanzadas por encima del límite superior
 anuncios_outliers = df[df['personas_alcanzadas'] > upper_bound]
 
+#ordenar los outliners de mayor a menor 
+anuncios_outliers= anuncios_outliers.sort_values(by='personas_alcanzadas', ascending=False)
+
 # Mostrar los nombres de los anuncios que son outliers
 print("Anuncios con más personas alcanzadas (outliers):")
 print(anuncios_outliers[['nombre_anuncio', 'personas_alcanzadas']])

@@ -56,6 +56,9 @@ upper_bound = q3 + 1.5 * iqr
 # Filtrar anuncios con mas msjs_respondidos_en_7Dias por encima del límite superior
 anuncios_outliers = df[df['msjs_respondidos_en_7Dias'] > upper_bound]
 
+#ordenar los outliners de mayor a menor 
+anuncios_outliers= anuncios_outliers.sort_values(by='msjs_respondidos_en_7Dias', ascending=False)
+
 # Mostrar los nombres de los anuncios que son outliers
 print("Anuncios con más msjs respondidos en 7Dias (outliers):")
 print(anuncios_outliers[['nombre_anuncio', 'msjs_respondidos_en_7Dias']])
