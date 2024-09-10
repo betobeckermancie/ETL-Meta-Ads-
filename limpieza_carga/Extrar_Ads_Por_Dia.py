@@ -1,4 +1,4 @@
-#codigo para guardar todos los insights necesarios para el analisis de datos de SOLO los anuncios
+#codigo para guardar todos los insights necesarios para el analisis de datos de SOLO los anuncios por dia
 import requests
 import pandas as pd
 import os
@@ -37,6 +37,7 @@ def obtener_alcance_anuncio(access_token, ad_id):
     params = {
         "access_token": access_token,
         "fields": "ad_id,ad_name,adset_name,campaign_name,date_start,date_stop,reach,impressions,frequency,spend,clicks,cost_per_ad_click,inline_link_clicks,conversion_rate_ranking,cpc,cpp,cpm,actions,ad_click_actions,quality_ranking,conversions,buying_type",  # Especifica las métricas que deseas obtener
+        'time_increment': 1, 
         "level": "ad"  # Nivel de la métrica, en este caso es a nivel de anuncio
     }
 
@@ -75,9 +76,11 @@ if df_conjuntos is not None:
     if all_insights:
         df_all_insights = pd.concat(all_insights, ignore_index=True)
         # Guardar todos los insights en un solo CSV
-        df_all_insights.to_csv(f"{processed_dir}/anuncios_insightsTEST.csv", index=False)
-        print("Todos los insights de los anuncios guardados exitosamente.")
+        df_all_insights.to_csv(f"{processed_dir}/anuncios_insights_por_dia.csv", index=False)
+        print("Todos los insights de los anuncios por dia guardados exitosamente.")
     else:
         print("No se encontraron insights de anuncios.")
 else:
     print("No se encontraron conjuntos de anuncios o limite de solicitud excedido.")
+#ver los archivos que existen dentro de la ruta 
+dbutils.fs.ls("/mnt/processed")
