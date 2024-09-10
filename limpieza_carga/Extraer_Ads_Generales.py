@@ -77,9 +77,10 @@ if df_conjuntos is not None:
         df_all_insights = pd.concat(all_insights, ignore_index=True)
         # Guardar todos los insights en un solo CSV
         df_all_insights.to_csv(f"{processed_dir}/anuncios_insights_general.csv", index=False)
-        print("Todos los insights de los anuncios por hora guardados exitosamente.")
+        print("Todos los insights de los anuncios generales guardados exitosamente.")
     else:
         print("No se encontraron insights de anuncios.")
 else:
     print("No se encontraron conjuntos de anuncios o limite de solicitud excedido.")
+#revisar cuales archivos existen dentro de la ruta
 dbutils.fs.ls("/mnt/processed")
