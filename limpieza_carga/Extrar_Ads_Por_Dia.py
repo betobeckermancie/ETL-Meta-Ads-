@@ -1,4 +1,4 @@
-#codigo para guardar todos los insights necesarios para el analisis de datos de SOLO los anuncios por dia
+#codigo para guardar todos los insights necesarios para el analisis de datos de SOLO los anuncios
 import requests
 import pandas as pd
 import os
@@ -38,6 +38,7 @@ def obtener_alcance_anuncio(access_token, ad_id):
         "access_token": access_token,
         "fields": "ad_id,ad_name,adset_name,campaign_name,date_start,date_stop,reach,impressions,frequency,spend,clicks,cost_per_ad_click,inline_link_clicks,conversion_rate_ranking,cpc,cpp,cpm,actions,ad_click_actions,quality_ranking,conversions,buying_type",  # Especifica las métricas que deseas obtener
         'time_increment': 1, 
+        "breakdowns": "hourly_stats_aggregated_by_advertiser_time_zone",
         "level": "ad"  # Nivel de la métrica, en este caso es a nivel de anuncio
     }
 
