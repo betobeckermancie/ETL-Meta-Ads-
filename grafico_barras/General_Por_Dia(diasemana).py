@@ -2,48 +2,39 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Cargar el archivo CSV
-df = pd.read_csv("/dbfs/mnt/processed/anuncios_insights_general.csv")
+df = pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv")
 
-# Asegurarse de que la columna 'date_start' está en formato de fecha
-df['date_start'] = pd.to_datetime(df['date_start'])
+# Asegurarse de que la columna date_start esté en formato de fecha
+df['fecha_inicio'] = pd.to_datetime(df['fecha_inicio'])
 
-# Crear una nueva columna con el día de la semana ('Monday', 'Tuesday', etc.)
-df['dia_semana'] = df['date_start'].dt.day_name()
+# Extraer el día de la semana (Monday=0, Sunday=6)
+df['day_of_week'] = df['fecha_inicio'].dt.dayofweek
 
-# Agrupar los datos por el día de la semana para calcular las interacciones
-df_grouped = df.groupby('dia_semana').agg({
-    'clicks_en_anuncio': 'sum',
-    'veces_mostrado': 'sum',
-    'click_enlace_trafico': 'sum',  # Añade otras métricas relevantes que desees
-    'interaccion_post': 'sum',
-    'conversion_boton_msj': 'sum',
-    'contenido_guardado':'sum'
-}).reset_index()
+# Mapear los valores numéricos a los nombres de los días
+dias_semana = {0: 'Lunes', 1: 'Martes', 2: 'Miércoles', 3: 'Jueves', 4: 'Viernes', 5: 'Sábado', 6: 'Domingo'}
+df['day_of_week'] = df['day_of_week'].map(dias_semana)
 
-# Crear una columna que sume todas las interacciones
-df_grouped['total_interacciones'] = (
-    df_grouped['clicks_en_anuncio'] + 
-    df_grouped['veces_mostrado'] + 
-    df_grouped['click_enlace_trafico'] + 
-    df_grouped['interaccion_post']+
-    df_grouped['conversion_boton_msj']+
-    df_grouped['contenido_guardado']
-)
+#selecionamos las columnas especificar a sumar
+columns_to_sum =['clicks_en_anuncio','costo_por_click_anuncio','click_enlace_trafico','conversion_boton_msj']
 
-# Ordenar los días de la semana en el orden correcto
-dias_orden = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
-df_grouped['dia_semana'] = pd.Categorical(df_grouped['dia_semana'], categories=dias_orden, ordered=True)
-df_grouped = df_grouped.sort_values('dia_semana')
+# Agrupar por el día de la semana y sumar las interacciones
+df_grouped = df.groupby('day_of_week')[columns_to_sum].sum()
 
-# Crear gráfico de barras
+#sumar las columnas seleccionadas para obtener el total de interacciones por dia
+df_grouped['total_interacciones']=df_grouped.sum(axis=1)
+
+# Ordenar los días de la semana correctamente
+df_grouped = df_grouped.reindex(['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'])
+
+# Crear el gráfico de barras usando solo la columna 'total_interacciones'
 plt.figure(figsize=(10, 6))
-plt.bar(df_grouped['dia_semana'], df_grouped['total_interacciones'], color='blue')
+df_grouped['total_interacciones'].plot(kind='bar', color='skyblue')
 
-# Etiquetas y título
-plt.title('Total de Interacciones por Día de la Semana', fontsize=16)
-plt.xlabel('Día de la Semana', fontsize=14)
-plt.ylabel('Total de Interacciones', fontsize=14)
+# Añadir etiquetas y título
+plt.title('Total de Interacciones por Día de la Semana')
+plt.xlabel('Día de la Semana')
+plt.ylabel('Cantidad')
 
-# Mostrar gráfico
+# Mostrar el gráfico
 plt.tight_layout()
 plt.show()
