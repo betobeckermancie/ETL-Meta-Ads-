@@ -15,11 +15,10 @@ dias_semana = {0: 'Lunes', 1:'Martes', 2:"Miercoles", 3:"Jueves",4:"Viernes",5:"
 df['day_of_week']=df['day_of_week'].map(dias_semana)
 
 #columna dinamica para que cuando cambiemos la variable a analizar se cambie el titulo
-columna_a_analizar='comentarios'#aqui cambiare la variable a analizar}
+columna_a_analizar='like'#aqui cambiare la variable a analizar}
 
 #Agrupare el dia de la semana y sumare las cantiades
-df_grouped = df.groupby('day_of_week')
-[columna_a_analizar].sum()
+df_grouped = df.groupby('day_of_week')[columna_a_analizar].sum()
 
 #Ordeno los dias de la semana en orden correcto
 df_grouped = df_grouped.reindex(["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"])
