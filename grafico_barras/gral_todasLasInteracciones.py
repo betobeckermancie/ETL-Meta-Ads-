@@ -15,7 +15,7 @@ dias_semana = {0: 'Lunes', 1: 'Martes', 2: 'Miércoles', 3: 'Jueves', 4: 'Vierne
 df['day_of_week'] = df['day_of_week'].map(dias_semana)
 
 #selecionamos las columnas especificar a sumar
-columns_to_sum =['clicks_en_anuncio','costo_por_click_anuncio','click_enlace_trafico','conversion_boton_msj']
+columns_to_sum =['like','reacciones_post','comentarios','interaccion_post','contenido_guardado','conversion_primer_respuesta','conversion_boton_msj','clicks_en_anuncio','click_link','click_enlace_trafico']
 
 # Agrupar por el día de la semana y sumar las interacciones
 df_grouped = df.groupby('day_of_week')[columns_to_sum].sum()
@@ -31,7 +31,7 @@ plt.figure(figsize=(10, 6))
 df_grouped['total_interacciones'].plot(kind='bar', color='skyblue')
 
 # Añadir etiquetas y título
-plt.title('Total de Interacciones por Día de la Semana')
+plt.title('Total de todas las interacciones por Día de la Semana')
 plt.xlabel('Día de la Semana')
 plt.ylabel('Cantidad')
 
