@@ -9,7 +9,7 @@ df = pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_gene
 df['fecha_inicio'] = pd.to_datetime(df['fecha_inicio'])
 
 # Especificar el parámetro que deseas analizar
-parametro_a_analizar = 'vista_video'  # Cambia este valor por la columna que deseas analizar
+parametro_a_analizar = 'vistas_video'  # Cambia este valor por la columna que deseas analizar
 
 # Agrupar por fecha y sumar el parámetro seleccionado
 df_grouped = df.groupby('fecha_inicio')[parametro_a_analizar].sum()
