@@ -22,7 +22,7 @@ plt.hist(df_grouped.index, weights=df_grouped.values, bins=30, color='skyblue')
 plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y'))
 plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=7))  # Intervalo de 7 días
 
-# Añadir etiquetas y título dinámico basado en el parámetro
+# Añadir etiquetas y título dinámico basado en el parámetro para mostrar facilmente
 plt.title(f'Histograma de {parametro_a_analizar} a lo largo del tiempo (por Fecha)')
 plt.xlabel('Fecha')
 plt.ylabel(f'Cantidad de {parametro_a_analizar}')
