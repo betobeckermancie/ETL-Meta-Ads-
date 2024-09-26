@@ -36,7 +36,7 @@ df_resampled.plot(title=f"Serie de tiempo de {variable_analizar} por dia", color
 
 #agregar etiquetas a grafica
 plt.xlabel(f"Analisis {fecha}")
-plt.ylabel("Total de conversiones")
+plt.ylabel("Total")
 plt.grid(True)
 
 #mostrar la grafica 
