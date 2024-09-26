@@ -17,7 +17,7 @@ variable_analizar = "conversion_boton_msj"#cambiar cuando sea necesario
 df_time_series =df[variable_analizar]
 
 #remplazar los datos segun sea necesario analizar ya sea
-# dia 'D', semana 'W', mes 'M' o 'Y'.
+# dia 'D', semana 'W', mes 'M' o año 'Y'.
 df_resampled = df_time_series.resample('D').sum()
 
 if df_time_series.resample('D'):
@@ -29,7 +29,7 @@ elif df_time_series.resample('M'):
 else:
     fecha = "Anual"
     
-#6. Graficar la serie de tiempo
+# Graficar la serie de tiempo
 plt.figure(figsize=(10,6))
 df_resampled.plot(title=f"Serie de tiempo de {variable_analizar} por dia", color='blue')
 
