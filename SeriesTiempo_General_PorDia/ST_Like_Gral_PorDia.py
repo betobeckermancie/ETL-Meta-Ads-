@@ -4,11 +4,13 @@ import matplotlib.pyplot as plt
 #cargamos el archivo csv
 df= pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv")
 
-#confirmar que la columna fecha_inicio sea tipo datatime
+#confirmar que la columna fecha_inicio sea tipo datatime a la time serie
 df['fecha_inicio'] = pd.to_datetime(df["fecha_inicio"])
 
 #establezco la columna "fecha_inicio" como el indice del dataframe para aplicar
-#la time serie
+df.set_index("fecha_inicio", inplace=True)
+
+#se usa para hacer dinamico el titulo
 variable_analizar ="like" #cambiar cuando sea necesario
 
 #seleccionar las columnas para analizar 
@@ -18,6 +20,7 @@ df_time_series = df[variable_analizar]
 #año 'Y'
 df_resampled = df_time_series.resample("D").sum()
 
+#se usa para hacer dinamicas las etiquetas
 if df_time_series.resample("D"):
     fecha="Dia"
 elif df_time_series.resample("W"):

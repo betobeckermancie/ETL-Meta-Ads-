@@ -20,6 +20,7 @@ df_time_series =df[variable_analizar]
 # dia 'D', semana 'W', mes 'M' o año 'Y'.
 df_resampled = df_time_series.resample('D').sum()
 
+#se usa para hacer dinamicas las etiquetas
 if df_time_series.resample('D'):
     fecha = "Dia"
 elif df_time_series.resample('W'):
@@ -28,6 +29,7 @@ elif df_time_series.resample('M'):
     fecha = "Mes"
 else:
     fecha = "Anual"
+
     
 # Graficar la serie de tiempo
 plt.figure(figsize=(10,6))
