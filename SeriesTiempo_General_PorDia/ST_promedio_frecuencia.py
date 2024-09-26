@@ -1,22 +1,22 @@
-import panda as pd
+import pandas as pd
 import matplotlib.pyplot as plt
 
 #cargamos el archivo csv
-df=pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv")
+df= pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv")
 
-#confirmar que la columna fecha_inicio sea tipo datatime
+#confirmar que la columna fecha_inicio sea tipo datetime
 df['fecha_inicio'] = pd.to_datetime(df["fecha_inicio"])
 
-#establecer la columna 'fecha_incio' para el indice para aplicar la time serie
+#establecer la columna 'fecha_inicio' como indice para aplicar a la time serie
 df.set_index("fecha_inicio", inplace=True)
 
 #se usa para hacer dinamico el titulo
-variable_analizar = "reacciones_post" #cambiar cuando sea necesario
+variable_analizar ="reacciones_post" #cambiar cuanndo sea necesario
 
-#selecccionar las columnas para analizar
+#seleccionar las columnas para analizar
 df_time_series = df[variable_analizar]
 
-#resamplear los datos segun sea necesario analizar ya sea Dia 'D',
+#resamplear los datos segun sea necesario analizar Dia 'D',
 #semana 'W' o año 'Y'
 df_resampled = df_time_series.resample("D").sum()
 
@@ -31,11 +31,11 @@ else:
     fecha="Anual"
 
 #Graficar la serie de tiempo
-plt.figure(figsize=(10,6))
-df_resampled.plot(title= f"Serie de tiempo de {variable_analizar}por dia", color="blue")
+plt.figure(figsize=(10, 6))
+df_resampled.plot(title=f"Serie de tiempo de {variable_analizar} por dia", color="blue")
 
-#agregar etiquetas a grafica
-plt.xlabel(f"Analisis {fecha}")
+#agregar etiquetas a la grafica
+plt.xlabel(f"Analisis de {fecha}")
 plt.ylabel("Total")
 plt.grid(True)
 
