@@ -1,4 +1,4 @@
-import panda as pd
+import pandas as pd
 import matplotlib.pyplot as plt
 
 #cargamos el archivo csv
