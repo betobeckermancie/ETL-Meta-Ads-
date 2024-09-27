@@ -1,4 +1,4 @@
-import panda as pd
+import pandas as pd
 import matplotlib.pyplot as plt
 
 #cargamos el archivo csv
@@ -19,7 +19,7 @@ df_time_series = df[variable_analizar]
 
 #resamplear los datos segun sea necesario analizar ya sea Dia 'D'
 #semana 'W' o año 'Y'
-df_resampled= df_time_series.resample("D").sum
+df_resampled= df_time_series.resample("D").sum()
 
 #se usa para hacer dinamicas las etiquetas
 if df_time_series.resample("D"):
