@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 df = pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv")
 
 # Seleccionar las columnas que te interesen analizar para el heatmap
-# Especificar las columnas numéricas que quieres comparar
 columns_to_analyze = ['clicks_en_anuncio', 'costo_por_click_anuncio', 'click_enlace_trafico', 'conversion_boton_msj']
 
 # Crear una matriz de correlación entre estas variables
