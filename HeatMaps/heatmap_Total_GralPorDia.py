@@ -1,6 +1,13 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+#correlaciones 
+#1 indica una correlacion positiva efectiva perfecta: a medida que una metrica aumenta,
+#la otra tambien lo hace
+#-1 indica una correlacion negatica perfecta: cuna una metrica aumenta, la otra disminuye
+#0 indica que no hay correlacion
+
+
 
 # Cargar el archivo CSV
 df = pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv")
