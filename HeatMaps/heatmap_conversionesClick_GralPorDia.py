@@ -1,3 +1,4 @@
+#eficiencia de los clicks en los ads
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt

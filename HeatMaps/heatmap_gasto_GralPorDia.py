@@ -1,3 +1,4 @@
+#relacion entre gasto y metricas de interaccion
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
