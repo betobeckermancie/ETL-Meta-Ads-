@@ -14,6 +14,9 @@ df = pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_gene
 #seleccionar las columnas para analizarlas
 columns_to_analyze = ["click_enlace_trafico", "conversion_boton_msj", "reacciones_post","comentarios","contenido_guardado"]
 
+# Verificar si hay valores nulos en la columna 'contenido_guardado' y llenarlos con 0 (podemos cambiar el valor al que queramos)
+df['contenido_guardado'].fillna(0, inplace=True)
+
 #creamos mariz de correlacion entre las variables
 corelation_matrix = df[columns_to_analyze].corr()
 
