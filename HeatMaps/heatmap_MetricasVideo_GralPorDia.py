@@ -1,4 +1,4 @@
-#Comparativa de Métricas Visuales
+#Comparativa de Métricas de video/visuales
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt 

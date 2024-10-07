@@ -23,7 +23,7 @@ plt.figure(figsize=(10, 6))
 sns.heatmap(correlation_matrix, annot=True, cmap="YlGnBu", linewidths=0.5)
 
 #agregar etiquetas y titulo
-plt.title("Heatmap de correlacion entre metricas publicitarias", fontsize="16")
+plt.title("Heatmap de correlacion Frecuencia y Rendimiento", fontsize="16")
 plt.xticks(rotation=45)
 plt.yticks(rotation=0)
 
