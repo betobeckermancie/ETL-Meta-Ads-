@@ -2,7 +2,6 @@
 # y su costo por mil impresiones. Te permitirá observar la relación entre el tráfico 
 # generado, la interacción en las publicaciones y la frecuencia con la que se muestran
 # los anuncios.
-nombre_anuncio, clicks_en_anuncio, vistas_video, conversion_boton_msj, contenido_guardado
 
 import pandas as pd
 import seaborn as sns
