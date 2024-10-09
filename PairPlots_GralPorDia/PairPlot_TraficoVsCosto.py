@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 df =pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv")
 
 #columns para analizar
-columns_to_analyze = ["nombre_anuncio","clicks_en_anuncio","vistas_video","conversion_boton_msj","contenido_guardado"]
+columns_to_analyze = ["nombre_anuncio","click_enlace_trafico","costo_por_mil_impresiones"," interaccion_post","promedio_frecuencia"]
 
 #agrupamos por nombre de anuncio y filtramos los 3 con mayores veces mostrados
 top_3 = df.groupby("nombre_anuncio")["veces_mostrado"].sum().nlargest(3).index
