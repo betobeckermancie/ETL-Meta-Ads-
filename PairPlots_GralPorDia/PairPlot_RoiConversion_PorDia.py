@@ -2,7 +2,7 @@
 #(clicks en enlaces) y cómo están relacionados con las conversiones de primera 
 #respuesta, el gasto y el alcance. Es importante para identificar qué anuncios con 
 #enlaces obtienen más interacción y a qué costo.
-nombre_anuncio, click_link, conversion_primer_respuesta, gasto, personas_alcanzadas
+
 
 import pandas as pd
 import seaborn as sns
