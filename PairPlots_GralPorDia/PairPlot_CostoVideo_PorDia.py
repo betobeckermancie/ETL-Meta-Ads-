@@ -9,6 +9,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 #cargar csv
+df = pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv")
+
+#columnas para analizar
 columns_to_analyze=["nombre_anuncio", "personas_alcanzadas", "costo_por_click_anuncio","vistas_video","contenido_guardado"]
 
 #agrupamos por nombre de anuncio y filtramos los 3 con mayores veces mostrados
