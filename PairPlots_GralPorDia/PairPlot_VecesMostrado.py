@@ -4,7 +4,7 @@
 #Te permite identificar qué anuncios generan más conversiones 
 #en relación con la cantidad de veces mostradas y el presupuesto
 #gastado.
-nombre_anuncio, clicks_en_anuncio, conversion_boton_msj, veces_mostrado, gasto
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
