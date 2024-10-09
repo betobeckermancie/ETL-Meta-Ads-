@@ -15,7 +15,7 @@ df= pd.read_csv("/dbfs/mnt/processed/Ads_General_Por_Dia/anuncios_insights_gener
 columns_to_analyze = ["nombre_anuncio","click_link","conversion_primer_respuesta","gasto","personas_alcanzadas"]
 
 #agrupamos por nombre de anuncio y filtramos los 3 con mayores veces mostrados
-top_3 = df.groupby("nombre_anuncio")["veces_mostrado"].sum().nlargest().index
+top_3 = df.groupby("nombre_anuncio")["veces_mostrado"].sum().nlargest(3).index
 
 #filtramos df para dejar solo el top 3
 df_filtrado =df[df["nombre_anuncio"].isin(top_3)]
