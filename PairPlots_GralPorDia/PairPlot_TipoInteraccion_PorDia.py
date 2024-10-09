@@ -2,7 +2,6 @@
 #puedes evaluar qué tipo de interacción está recibiendo cada anuncio y cómo las 
 #reacciones, likes y comentarios están correlacionados entre sí. 
 #Es útil para comprender qué anuncios fomentan más interacciones sociales.
-nombre_anuncio, interaccion_post, reacciones_post, like, comentarios
 
 import pandas as pd
 import seaborn as sns
