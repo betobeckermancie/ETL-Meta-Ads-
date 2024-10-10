@@ -21,7 +21,7 @@ df_filtrado = df[df["nombre_anuncio"].isin(top_3)]
 
 #cremos el pairplot
 plt.figure(figsize=(10, 6))
-g=sns.pairplot(df_filtrado[columns_to_analyze],height=1.5,hue='nombre_anuncio',palette='bright')
+g=sns.pairplot(df_filtrado[columns_to_analyze],hue='nombre_anuncio',palette='bright')
 
 #titulo de cabecera
 plt.suptitle("Relación entre variables para los 3 anuncios con mayores números", y=1.18, fontsize=16)
