@@ -10,7 +10,7 @@ variable_analizar = "costo_por_mil_impresiones"
 # se agrupa por el nombre del anuncio para que no se repita
 df_grouped = df.groupby('nombre_anuncio')[variable_analizar].sum()
 
-#ordena la variable y obtiene los 5 con mayor numero
+#ordena la variable y obtiene los 5 con peor numero
 top_5_ads = df_grouped.nsmallest(5)
 
 # Creamos grafico de barras
