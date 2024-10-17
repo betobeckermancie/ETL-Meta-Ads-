@@ -1,3 +1,5 @@
+from datetime import datetime
+
 #leo archivo csv desde el sistema de archivos de databricks (DFBS)
 df = spark.read.csv("dbfs:/mnt/processed/Ads_General_Por_Dia/anuncios_insights_general_por_dia_limpiado.csv",header=True, inferSchema=True)
 
