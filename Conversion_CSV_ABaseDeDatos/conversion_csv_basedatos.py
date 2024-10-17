@@ -9,3 +9,5 @@ df.write.mode("overwrite").saveAsTable("db_pecsa_ads.meta_ads")
 
 # verifico que la tabla se haya creado
 spark.sql("SHOW TABLES IN db_pecsa_ads").show()
+
+#SELECT * FROM db_pecsa_ads.meta_ads
