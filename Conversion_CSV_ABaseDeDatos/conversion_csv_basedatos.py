@@ -14,4 +14,4 @@ fecha_actual =datetime.now().strftime("%d_%m_%Y")
 nombre_tabla=f"meta_ads{fecha_actual}"
 
 #guardar tabla de forma permanente en databricks para acceder con powerbi
-df.write.form("delta").saveAsTable("meta_ads")
+df.write.form("delta").saveAsTable(nombre_tabla)
