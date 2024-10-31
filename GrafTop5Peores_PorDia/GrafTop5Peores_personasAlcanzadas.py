@@ -13,6 +13,14 @@ df_grouped = df.groupby('nombre_anuncio')[variable_analizar].sum()
 #ordena la variable y obtiene los 5 con peor numero
 top_5_ads = df_grouped.nsmallest(5)
 
+# Convertimos el resultado en un DataFrame para un formato de tabla
+top5ads_df = top_5_ads.reset_index()
+top5ads_df.columns = ["nombre_anuncio", variable_analizar]
+
+# Imprimimos en pantalla el top 5 con nombre y cantidad en formato tabla
+print("Top 5 Anuncios con Menor Número de", variable_analizar)
+print(top5ads_df.to_string(index=False))
+
 # Creamos grafico de barras
 plt.figure(figsize=(10, 6))
 top_5_ads.plot(kind='bar', color="#FF6262")
