@@ -13,13 +13,13 @@ df_grouped = df.groupby('nombre_anuncio')[variable_analizar].sum()
 #ordena la variable y obtiene los 5 con mayor numero
 top_5_ads = df_grouped.nlargest(5)
 
-#convertimos el resultado en un dataframe para un formato de tabla
-top_5_ads_df = top_5_ads.reset_index()
-top_5_ads_df.columns = ["nombre_anuncio", variable_analizar]
+#convertimos el resultado en un dataframe para un formato tabla
+top5ads_df = top_5_ads.reset_index()
+top5ads_df.columns = ["nombe_anuncio", variable_analizar]
 
-#imprimimos el top 5 con nombre y cantidad en formato tabla
-print("Top 5 Anuncios con Mayor numero de", variable_analizar)
-print(top_5_ads_df.to_string(index=False))
+#imprimimos el top 5 con nombre y cantidad en fomato tabla
+print("Top 5 Ads con Mayor numero de" ,variable_analizar)
+print(top5ads_df.to_string(index=False))
 
 # Creamos grafico de barras
 plt.figure(figsize=(10, 6))
